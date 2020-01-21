@@ -1,0 +1,51 @@
+---
+title: "Wealth and Life Expectancy"
+author: "Jihyun Yoo"
+date: "January 17, 2020 (Week_2)"
+output: StatsBYUI::math325_analysis
+---
+###Background
+
+I learned ggplot is just to keep adding layers, and don't kill myself for the perfectness. 
+
+###Images
+
+plot 1 
+
+```{r load_library, include=FALSE}
+# Use this R-Chunk to load your libraries!
+# ctrl shift c  : comment 
+
+library(mosaic);library(gapminder);library(tidyverse);library(ggplot2)
+#View(gapminder)
+colnames(gapminder)
+gapminder$pop <- gapminder$pop/100000
+gapminder <- gapminder %>% filter(country != "Kuwait")
+
+ggplot(data = gapminder ) + 
+  geom_point(mapping = aes(x = lifeExp, y = gdpPercap, size = pop, color = continent)) + labs(x="Life Expectacy",y="GEP per captia")+labs(size = "Population(100k)") +theme_bw() + scale_y_continuous(trans = "sqrt") +facet_wrap(~year,nrow=2) 
+
+ggsave("CS2_plot1.png", width=15,units="in")
+
+```
+
+plot 2 
+
+```{r load_data, include=FALSE}
+gapminder2 <- gapminder %>% group_by(continent,year) %>% summarize(weight_gep = weighted.mean(gdpPercap), popp = as.numeric(mean(pop)), den = "black") #pop*30 = more perfect 
+
+gapminder %>% ggplot(aes(x = year, y = gdpPercap, size = pop, color = continent)) +  geom_line(aes(group=country), size = 0.8)+ geom_point()+
+  theme_bw() +
+  labs(size = "Population(100k)")+ 
+  labs(x="Year",y="GEP per captia")+ 
+  scale_y_continuous(trans = "sqrt")+ 
+  geom_line(data = gapminder2,aes(x = year, y = weight_gep, size = popp), color = "black", size = 0.9)+
+  facet_wrap(.~continent)+
+  geom_point(data = gapminder2,aes(x = year, y = weight_gep, size = popp), color = "black")
+
+ggsave("CS2_plot2.png", width=15,units="in")
+
+```
+
+
+

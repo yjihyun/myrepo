@@ -1,0 +1,47 @@
+---
+title: "Case Study 1"
+author: "Jihyun Yoo"
+date: "January 10, 2020"
+output:
+  html_document:  
+    keep_md: true
+    toc: true
+    toc_float: true
+    code_folding: hide
+    fig_height: 6
+    fig_width: 12
+    fig_align: 'center'
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+### 1. How popular is Donald Trump?
+
+I liked using green and orange like traffic lights and using a thick line for 50% in the vertical axis to show the middle.  I do not need to scroll down to see - just it is obvious to know the author's purpose at a glance. Also, it was interesting comparing the rating with previous Presidents in the US. They declared the source of data and gave weight by how trustful the data is and explained how they weighted the grade. I think '90% of polls rejected to fall in this range' is not needed for this page as they marked each poll as a dot, but this is a very neat and good example of data visualization.
+
+Link : https://projects.fivethirtyeight.com/trump-approval-ratings/?ex_cid=rrpromo
+
+### 2. Where Blue-Collar America Is Strongest
+
+Map visualization is a good way to compare areas because it is easy to understand as it presents the whole country. This allows comparing the activity across several locations at a glance. To improve the data visualization, putting something to summarize the contents on top of the article as the maps are located pretty below the article. 
+
+Link : https://fivethirtyeight.com/features/has-trump-made-the-working-class-great-again-not-if-youre-black-or-female/
+
+### 3. 35 Years Of American Death
+
+I really enjoyed the video. I never thought to make a video with data, but it is interesting to see how the death rate change by the county, state, and country. Also, I like showing the trend by causes of death showing angle. In my opinion, however, showing a percentage would be better to feel and understand the data. 
+
+Link : https://projects.fivethirtyeight.com/mortality-rates-united-states/
+
+### 4. The Most Solar Places in America
+
+The legend of the map is too small that I had to zoom the photo to check purple color means higher density. Also, the scatter plot is fun because it emphasizes San Diego, so I suggest to switch the scatter plot and bar chart. But I liked the idea to use different colors of data labels to make top cities unique and using three different types of data visualizations. 
+
+Link : https://priceonomics.com/the-most-solar-places-in-america/
+
+```{r }
+plot(1:20)
+```
+
